@@ -29,8 +29,14 @@ public class Exercise01 {
 		var sortedNames = names.stream().parallel().sorted(orderByStringLengthAsc).toList();  // 3
 		sortedNames = names.stream().parallel()
 				.sorted(orderByStringLengthAsc.thenComparing(String::compareTo)).toList();  // 3
+		names.stream().sorted(Comparator.comparingInt(String::length)).toList();
 		System.out.println(names);
 		System.out.println(sortedNames);
 
 	}
+}
+
+@FunctionalInterface
+interface MyFunInt {
+	boolean test(int x);
 }
